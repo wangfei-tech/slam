@@ -5,7 +5,7 @@ CMAKE_MINIMUM_REQUIRED( VERSION 3.21.1 )
 PROJECT( slam )
 
 # c++11 or higher version
-ADD_DEFINITIONS( -std=c++14 )
+ADD_DEFINITIONS( -std=c++17 )
 
 # option of turning on the log or not
 OPTION( ONLOG "log on or off" OFF )

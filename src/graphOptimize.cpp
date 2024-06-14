@@ -98,12 +98,13 @@ void GraphOptimize::getOptimizedResults()
 	// TODO ....
 	for(g2o::SparseOptimizer::VertexContainer::const_iterator n = nodes.begin(); n != nodes.end(); ++n) {
 
-		//double estimate[3];
-        	Eigen::Vector3d estimate;
+		// double estimate[3];
+        Eigen::Vector3d estimate;
+		// estimate.cast<float>();
+		// std::vector<double> estimate[3];
 		if((*n)->getEstimateData(estimate)) {
         	//(*n)->getEstimateData(estimate);
 		//	std::cout << "result:" << estimate<< std::endl; 
- 			
 			estimatedPoses.push_back( estimate.cast<float>()  );
 	       	}
     	}

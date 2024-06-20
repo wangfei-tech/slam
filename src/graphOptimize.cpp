@@ -102,9 +102,11 @@ void GraphOptimize::getOptimizedResults()
         Eigen::Vector3d estimate;
 		// estimate.cast<float>();
 		// std::vector<double> estimate[3];
-		if((*n)->getEstimateData(estimate)) {
+		std::vector<double> stdVector(estimate.data(), estimate.data() + estimate.size());
+		if((*n)->getEstimateData(stdVector)) {
         	//(*n)->getEstimateData(estimate);
 		//	std::cout << "result:" << estimate<< std::endl; 
+			Eigen::Vector3d estimate(stdVector.data());
 			estimatedPoses.push_back( estimate.cast<float>()  );
 	       	}
     	}

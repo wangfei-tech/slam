@@ -7,6 +7,7 @@ ADD_DEFINITIONS( -std=c++14 )
 SET( EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin" )
 MESSAGE( STATUS "executable files path: " ${PROJECT_BINARY_DIR}/bin )
 
+set(G2O_ROOT /usr/local/include/g2o) 
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/../../cmake_modules)
 MESSAGE( STATUS "cmake moudules path : ${CMAKE_MODULE_PATH}" )

@@ -27,6 +27,8 @@ SET( LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib" )
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
 # find g2o library
+set(G2O_ROOT /usr/local/include/g2o) 
+
 FIND_PACKAGE( G2O REQUIRED )
 IF( G2O_FOUND )
 	INCLUDE_DIRECTORIES( ${G2O_INCLUDE_DIR} )
@@ -45,6 +47,7 @@ INCLUDE_DIRECTORIES( ${CSPARSE_INCLUDE_DIR} )
 # directory of eigen headers
 INCLUDE_DIRECTORIES( ${EIGEN3_INCLUDE_DIR} )
 
+include_directories( ${G2O_INCLUDE_DIRS} "/usr/include/eigen3" )
 # find required opencv
 FIND_PACKAGE( OpenCV REQUIRED )
 MESSAGE( STATUS "Opencv lib is found: " )

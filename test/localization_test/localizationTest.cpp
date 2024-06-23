@@ -104,8 +104,7 @@ int main()
     	slam::OccupiedMap occupiedMap;
 
     	occupiedMap = slam::LoadMap()("../../../simulation_file/test.map");
-    	occupiedMap.setMapInfo(1001, 1001, 10);
-
+    	occupiedMap.setMapInfo(2001, 2001, 10);
     	std::cout << "-------------------- Map Information -----------------" << std::endl;
     	std::cout << "map sizeX : " << occupiedMap.getSizeX() << std::endl;
     	std::cout << "map sizeY : " << occupiedMap.getSizeY() << std::endl;

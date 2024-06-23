@@ -13,8 +13,10 @@ struct LidarScan{
 			angle_max(3.14159),
 			angle_increment(0.0174532924),
 			time_increment(0.0004022129),
-			range_min(0.1500000060),
-			range_max(12.0000000000)		
+			range_min(1.000000060),
+			// range_min(0.1500000060),
+			// range_max(12.0000000000)		
+			range_max(30.0000000000)		
 	{
 		memset( this->ranges, 0, Size );
 		memset( this->intensities, 0, Size );
@@ -90,7 +92,8 @@ struct LidarScan{
 	
 };
 
-typedef struct LidarScan<1440> LaserScan;
+// typedef struct LidarScan<1440> LaserScan;
+typedef struct LidarScan<9990> LaserScan;
 
 struct IMU
 {

@@ -8,7 +8,7 @@
 
 void laserData2Container( const slam::sensor::LaserScan &scan, slam::ScanContainer &container )
 {
-        size_t size = 1440;
+        size_t size = 9990;
 
         float angle = -3.12413907051f;
         container.clear();
@@ -21,7 +21,7 @@ void laserData2Container( const slam::sensor::LaserScan &scan, slam::ScanContain
                         container.addData( Eigen::Vector2f( cos(angle) * dist, sin(angle) * dist ) );
                 }
 
-                angle += 0.00435422640294f;
+                angle += 0.000628947f;
         }
 
         std::cout<<"Scan Container Size: "<<container.getSize()<<std::endl;
@@ -57,12 +57,12 @@ int main()
 	cv::imshow("map", image);
 	
 	// open the simulation file
-	std::string file_name = "../../../simulation_file/laser_data.txt";
+	std::string file_name = "../../../../simulation_file/file.txt";
 	simulation.openSimulationFile( file_name );
 
 
 	// added for recording the laser odometry data
-	ouputOdom.openOutputSimulationFile( "../../../simulation_file/odometry2.txt" );
+	ouputOdom.openOutputSimulationFile( "../../../../simulation_file/odometry2.txt" );
 		
 	// convarince
 	Eigen::Matrix3f covarince;

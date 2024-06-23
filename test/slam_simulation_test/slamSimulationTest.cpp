@@ -9,20 +9,26 @@
 
 void laserData2Container( const slam::sensor::LaserScan &scan, slam::ScanContainer &container )
 {
-        size_t size = 1440;
+        // size_t size = 1440;
+        size_t size = 9990;
 
-        float angle = -3.14159f;
+        // float angle = -3.14159f;
+        float angle = 0.0f;
         container.clear();
 
         for( int i = 0; i < size; i ++ ){
                 float dist = scan.ranges[ i ];
 
-                if( dist >= 0.0099999998f && dist <= 15.0000000000f ){
+                if( dist >= 1.5f && dist <= 20.0000000000f )
+                // if( dist >= 0.0099999998f && dist <= 15.0000000000f )
+				{
                         //dist *= scaleToMap;
+						// x,y坐标
                         container.addData( Eigen::Vector2f( cos(angle) * dist, sin(angle) * dist ) );
                 }
 
-                angle += 0.0043633231f;
+                // angle += 0.0043633231f;
+                angle += 0.00062894745497033f;
         }
 
         std::cout<<"Scan Container Size: "<<container.getSize()<<std::endl;
@@ -34,7 +40,9 @@ int main()
 	std::cout<<"--------------------- SLAM Simulation --------------------"<<std::endl;
 	
 	// slam classes instances
+	// step1：初始化slam类
 	slam::SlamProcessor slam;
+	// step2: 初始化仿真类 
 	slam::simulation::Simulation simulation;
 	slam::MapInfo mapInfo = slam.getMapInfo();
 	
@@ -43,7 +51,6 @@ int main()
 	
 	// g2o instance
 	slam::optimizer::GraphOptimize optimizer;
-
 	// print the map information
 	std::cout<<"------------- Map Information ----------------"<<std::endl;
 	std::cout<<"Map SizeX: "<<mapInfo.getSizeX()<<std::endl;
@@ -61,7 +68,7 @@ int main()
 	cv::imshow("map", image);
 	
 	// open the simulation file
-	std::string file_name = "../../../simulation_file/laser_data.txt";
+	std::string file_name = "../../../../simulation_file/file.txt";
 	simulation.openSimulationFile( file_name );
 
 	// convarince

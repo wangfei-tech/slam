@@ -14,7 +14,7 @@
 
 void laserData2Container( const slam::sensor::LaserScan &scan, slam::ScanContainer &container )
 {
-        size_t size = 1440;
+        size_t size = 9990;
 
         float angle = -3.14159f;
         container.clear();
@@ -22,12 +22,12 @@ void laserData2Container( const slam::sensor::LaserScan &scan, slam::ScanContain
         for( int i = 0; i < size; i ++ ){
                 float dist = scan.ranges[ i ];
 
-                if( dist >= 0.0099999998f && dist <= 15.0000000000f ){
+                if( dist >= 0.0099999998f && dist <= 30.0f ){
                         //dist *= scaleToMap;
                         container.addData( Eigen::Vector2f( cos(angle) * dist, sin(angle) * dist ) );
                 }
 
-                angle += 0.0043633231f;
+                angle += 0.000628947f;
         }
 
         std::cout<<"Scan Container Size: "<<container.getSize()<<std::endl;
@@ -69,9 +69,9 @@ int main()
 	cv::imshow("map", image);
 	
 	// open the simulation file
-	std::string file_name = "../../../../simulation_file/laser_data2.txt";
+	std::string file_name = "/home/wf/HUASHINE/slam/simulation_file/file.txt";
 	simulation.openSimulationFile( file_name );
-
+	// ouputOdom.openOutputSimulationFile( "../../../../simulation_file/odometry2.txt" );
 	// convarince
 	Eigen::Matrix3f covarince;
 

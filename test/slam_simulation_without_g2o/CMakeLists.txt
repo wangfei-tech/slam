@@ -16,7 +16,8 @@ FIND_PACKAGE( OpenCV REQUIRED )
 #directory of opencv headers
 INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 
-
+SET( EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin" )
+MESSAGE( STATUS "executable files path: " ${PROJECT_BINARY_DIR}/bin )
 AUX_SOURCE_DIRECTORY( ${PROJECT_SOURCE_DIR}/slam_simulation_without_g2o/ test_src )
 
 INCLUDE_DIRECTORIES( "${PROJECT_SOURCE_DIR}/../include" )

@@ -271,6 +271,7 @@ const Eigen::Vector3f SlamProcessor::getPoseDifferenceValue() const
 
 bool SlamProcessor::isKeyFrame() const
 {
+	std::cout<<"keyFrame: "<<keyFrame<<std::endl;
 	return keyFrame;
 }
 

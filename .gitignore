@@ -1,1 +1,4 @@
 build/
+simulation_file/file.txt
+tools/file.txt
+.vscode/
